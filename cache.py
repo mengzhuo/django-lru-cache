@@ -3,16 +3,16 @@ File: cache.py
 Author: Meng Zhuo
 Email: mengzhuo1203@gmail.com
 Github: https://github.com/mengzhuo/
-Description: Django LRU style locmem
+Description: Django LRU style locmem cache
 """
 import time
 from django.core.cache.backends.base import BaseCache
 from django.utils.synch import RWLock
+from django.conf import settings
 
-MAX_KEYS = 1000
+MAX_KEYS = getattr(settings, 'LRU_MAX_KEYS', 1000)
 
 class LocLRUCache(BaseCache):
-
     """
     Django LRU Threading-safe locmem cache
     """

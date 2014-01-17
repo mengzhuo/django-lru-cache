@@ -21,7 +21,7 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 """
-__version__ = "0.1"
+__version__ = "0.2"
 __author__  = "Meng Zhuo <mengzhuo1203@gmail.com>"
 __license__ = "MIT"
 
