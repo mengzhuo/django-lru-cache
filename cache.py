@@ -5,16 +5,11 @@ Email: mengzhuo1203@gmail.com
 Github: https://github.com/mengzhuo/
 Description: Django LRU style locmem
 """
-import sys
-import os
-sys.path.append('/home/meng/project/zicaihui/trunk/webserver/')
-os.environ['DJANGO_SETTINGS_MODULE'] = "lz.settings"
 import time
 from django.core.cache.backends.base import BaseCache
 from django.utils.synch import RWLock
 
 MAX_KEYS = 1000
-
 
 class LocLRUCache(BaseCache):
 
@@ -106,6 +101,4 @@ class LocLRUCache(BaseCache):
     def __str__(self):
         return u"LRU Cache:{0._params} cached={0._cached_num}".format(self)
 
-
-class CacheClass(LocLRUCache):
-    pass
+CacheClass = LocLRUCache
